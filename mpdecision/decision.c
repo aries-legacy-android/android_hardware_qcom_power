@@ -89,11 +89,12 @@ static const float DEF_Ns[MAX_CPUS] = {0, 1.1, 2.1, 3.1};
 static const int DEF_Tw[MAX_CPUS] = {0, 140, 90, 90};
 /* Default average sleep time threshold per-core (in ms) */
 static const int DEF_Ts[MAX_CPUS] = {0, 190, 240, 240};
-/* Default utilization threshold per-core (%) */
-static const int DEF_util_high_and[MAX_CPUS] = {0, 35, 0, 0}; //{0, 50, 115, 210};
-static const int DEF_util_high_or[MAX_CPUS] = {0, 75, 160, 250};
+/* Default utilization threshold per-core (%).
+ * Values follow the factory binary: it logs these at startup on this device. */
+static const int DEF_util_high_and[MAX_CPUS] = {0, 0, 35, 0};
+static const int DEF_util_high_or[MAX_CPUS] = {0, 75, 400, 400};
 static const int DEF_util_low_and[MAX_CPUS] = {0, 30, 0, 0};
-static const int DEF_util_low_or[MAX_CPUS] = {0, 20, 125, 170};
+static const int DEF_util_low_or[MAX_CPUS] = {0, 20, 0, 0};
 static const int DEF_max_up_wndw_size = 3;
 static const int DEF_max_dw_wndw_size = 5;
 
