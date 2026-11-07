@@ -599,7 +599,7 @@ int sensors_setup(thermal_setting_t *settings)
 					}
 				}
 
-				msg("Sensor '%s' enabled for CPU%d "
+				dbgmsg("Sensor '%s' enabled for CPU%d "
 				    "core-control failsafe", sensor_names[i],
 				    hotplug_map[j].cpu);
 				break;

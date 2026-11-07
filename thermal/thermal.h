@@ -207,13 +207,20 @@ typedef struct _thermal_setting_t {
 #define msg(format, ...)   printf(format, ## __VA_ARGS__)
 #endif
 
+extern int debug_output;
+
+/* Verbose traces are only emitted when debugging is requested, either on the
+ * command line (--debug) or from the config file ("debug" field).  They used to
+ * be unconditional, which flooded the log with configuration parser and sysfs
+ * probing output on every boot.
+ */
 #define dbgmsg(format, ...)				\
 	do {						\
-		 LOGE(format, ## __VA_ARGS__); \
+		if (debug_output)			\
+			LOGE(format, ## __VA_ARGS__);	\
 	} while (0)
 
 extern int exit_daemon;
-extern int debug_output;
 extern int enable_restore_brightness;
 extern int num_cpus;
 extern int num_gpus;
