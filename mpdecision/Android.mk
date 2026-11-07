@@ -35,7 +35,9 @@ LOCAL_CFLAGS += \
         -DUSE_PM2
 endif
 
-USE_MPCTL_SOCKET := true
+# The mpctl client library is not part of the released sources; the socket
+# server it talks to is optional.
+USE_MPCTL_SOCKET := false
 ifeq ($(USE_MPCTL_SOCKET),true)
     LOCAL_CFLAGS += -DMPCTL_SERVER
     LOCAL_STATIC_LIBRARIES += libqc-mpctl
